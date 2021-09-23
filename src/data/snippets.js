@@ -66,7 +66,7 @@ render() {
 	},
 	{
 		title: 'Button Events',
-		text: 'Event lesen und in State schreiben',
+		text: 'Event lesen und loggen',
 		code: `
 class App extends Component {
   render() {
@@ -84,12 +84,14 @@ class App extends Component {
 		text: 'Event lesen und in State schreiben',
 		code: `
 class TextInput extends Component {
+  state = { username: '' }
+  
   render() {
     return <input onChange={this.changed} value={this.state.username} />
   }
 
   changed = event => {
-    console.log(event.target.value)
+    this.setState(event.target.value)
   }
 }
     `.trim()
@@ -99,6 +101,8 @@ class TextInput extends Component {
 		text: 'Event lesen und in State schreiben',
 		code: `
 class Select extends Component {
+  state = { color: '' }
+
   render() {
     return (
       <select value={this.state.color} onChange={this.updateColor}>
@@ -109,7 +113,7 @@ class Select extends Component {
   }
 
   updateColor = event => {
-    console.log(event.target.value)
+    this.setState(event.target.value)
   }
 }
     `.trim()
